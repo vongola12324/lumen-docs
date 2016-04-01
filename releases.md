@@ -1,44 +1,45 @@
-# Release Notes
+# 發行說明
 
-- [5.2.0](#5.2.0)
-- [5.1.0](#5.1.0)
-- [5.0.4](#5.0.4)
-- [5.0 (Based On Laravel 5.0.x)](#5.0)
+- [Lumen 5.2.0](#5.2.0)
+- [Lumen 5.1.0](#5.1.0)
+- [Lumen 5.0.4](#5.0.4)
+- [Lumen 5.0 (Based On Laravel 5.0.x)](#5.0)
 
 <a name="5.2.0"></a>
 ## Lumen 5.2.0
 
-Lumen 5.2.0 upgrades the framework to use the 5.2 family of Laravel components, as well as introduces some significant changes to Lumen's underlying philosophy and purpose.
+Lumen 5.2.0 升級了 framework，採用 Laravel 5.2 系列的元件，並對 Lumen 的基本理念和宗旨有著重大的改變。
 
-### Only Stateless APIs
+### 限定無狀態 APIs
 
-Lumen 5.2 represents a shift on slimming Lumen to focus solely on serving stateless, JSON APIs. **As such, sessions and views are no longer included with the framework.** If you need access to these features, you should use the full Laravel framework. Upgrading your Lumen application to the full Laravel framework mainly involves copying your routes and classes over into a fresh installation of Laravel. Since Laravel and Lumen share many of the same components, your classes should not require any modification.
+Lumen 5.2 意味著 slimming Lumen 上的一個改變，Lumen 將專注於無狀態的服務，例如：JSON APIs。**這也意味著，「sessions」及「views」將不再被 Lumen 支援。**如果你需要這些功能，那你應該使用完整的 Laravel framework！將 Lumen 應用程式升級到完整的 Laravel framework，基本上，你只需要將你的路由和類別複製到一個全新的 Laravel 專案中即可，因為 Lumen 和 Laravel 共用了許多相同的元件，你的類別應該是不需要任何修改的。
 
-### Authentication
+### 認證
 
-Because sessions are no longer included with Lumen, authentication must be done statelessly using API tokens or headers. You have complete control over the authentication process in the new `AuthServiceProvider`. Please review the [authentication documentation](/docs/{{version}}/authentication) for more information.
+因為 Sessions 不再被 Lumen 支援，認證程序必須使用 API tokens 或一些標頭(headers)在無狀態下完成。你可以完整的控制 `AuthServiceProvider` 中的整個認證流程。請參照 [認證文件](/docs/{{version}}/authentication) 了解相關訊息。
 
-### Testing Helpers
+### 測試輔助方法
 
-Since sessions are no longer included with Lumen, all of the form interaction testing helpers have been removed. The testing helpers for JSON APIs remain, so be sure to review the [testing documentation](/docs/{{version}}/testing).
+自從 Sessions 不再被 Lumen 支援，所有的表格交互測試輔助方法(testing helpers)已經被移除。不過 JSON APIs 的測試輔助方法仍然可以使用，請參照 [testing documentation](/docs/{{version}}/testing) 了解相關訊息。
 
 <a name="5.1.0"></a>
 ## Lumen 5.1.0
 
-Lumen 5.1.0 upgrades the framework to use the 5.1 family of Laravel components. Features such as event broadcasting, middleware parameters, and testing improvements are now available in Lumen. For the full Laravel 5.1 release notes, consult the [Laravel documentation](http://laravel.com/docs/releases).
+Lumen 5.1.0 升級了 framework，採用 Laravel 5.1 系列的元件。Lumen 在這次的更新中提供了一些新的功能，例如：事件廣播(event broadcasting)、中介層參數(middleware parameters)及測試的改進。  
+完整的 Laravel 5.1 發行說明請參考 [Laravel 文件](http://laravel.tw/docs/releases)。
 
 <a name="5.0.4"></a>
 ## Lumen 5.0.4
 
-When upgrading to Lumen 5.0.4, you should update your `bootstrap/app.php` file's creation of the Lumen application class to the following:
+當你的專案升級到 Lumen 5.0.4 時，你應該將 `bootstrap/app.php` 中的建立 Lumen 應用程式類別修改如下：
 
 	$app = new Laravel\Lumen\Application(
 		realpath(__DIR__.'/../')
 	);
 
-> **Note:** This is not a **required** change; however, it should prevent some bugs when using the Artisan CLI and PHP's built-in web server.
+> **附註：** 這不是一個**必要**的更新，但是它可以防止一些使用 Artisan 指令及 PHP 內建的網站伺服器上的 bug。
 
 <a name="5.0"></a>
 ## Lumen 5.0
 
-Lumen 5.0 is the initial release of the Lumen framework, and is based on the Laravel 5.x series of PHP components.
+Lumen 5.0 是 Lumen framework 的第一個發行版本，基於 Laravel 5.x 系列的 PHP 元件。
